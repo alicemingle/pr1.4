@@ -26,7 +26,7 @@ CComplexNumber& CComplexNumber::operator-=(const CComplexNumber& right) {
 }
 
 CComplexNumber CComplexNumber::operator-(const CComplexNumber& right) const {
-	CComplexNumber a = *this; //зис* это значение в €чейке вектора
+	CComplexNumber a = *this;
 	a -= right;
 	return a;
 }
@@ -70,7 +70,7 @@ CComplexVector::CComplexVector(const CComplexVector &other) {
 	std::copy(other.data, other.data + this->vecsize, this->data);
 }
 
-CComplexVector::CComplexVector(CComplexVector &&other) noexcept { //тут начала путатьс€
+CComplexVector::CComplexVector(CComplexVector &&other) noexcept {
 	this->vecsize = other.vecsize;
 	this->data = other.data;
 	other.vecsize = 0;
@@ -78,6 +78,7 @@ CComplexVector::CComplexVector(CComplexVector &&other) noexcept { //тут начала п
 }
 
 CComplexVector::~CComplexVector() {
+	delete[] this->FileName;
 	delete[] this->data;
 }
 
@@ -120,7 +121,6 @@ CComplexVector &CComplexVector::operator+=(const CComplexVector &right) {
 	for (int i = 0; i < std::min(this->vecsize, right.vecsize); i++) {
 		this->data[i] += right[i];
 	}
-
 	return *this;
 }
 
