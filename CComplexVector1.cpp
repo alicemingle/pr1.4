@@ -14,9 +14,19 @@ CComplexVector1 operator-(const CComplexVector1& left, const CComplexVector& rig
 	return a;
 }
 
+void CComplexVector1::setFilename(const char* FileName) {
+	this->FileName = new char[strlen(FileName) + 1];
+	memcpy(this->FileName, FileName, strlen(FileName));
+	this->FileName[strlen(FileName)] = '\0';
+}
+
+const char* CComplexVector1::getFilename() const {
+	return this->FileName;
+}
+
 int CComplexVector1::output(const char* FileName) {
 	if (FileName == nullptr) {
-		std::cout << "Error occured while working with file!!!" << std::endl;
+		std::cout << "Error occured while working with file!" << std::endl;
 		return 1;
 	}
 	std::ofstream out(FileName, std::ios::app);
