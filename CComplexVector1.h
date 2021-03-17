@@ -10,5 +10,7 @@ public:
 	CComplexVector1() = default;
 	CComplexVector1(const CComplexVector& r) : CComplexVector(r) {}
 	CComplexVector1(CComplexVector&& r) noexcept : CComplexVector(std::move(r)) {}
+	void setFilename(const char* FileName) override;
+	const char* getFilename() const override;
 	int output(const char* FileName = nullptr) override;
 };
