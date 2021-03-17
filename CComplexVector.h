@@ -38,8 +38,11 @@ public:
 	friend CComplexNumber operator*(const CComplexVector& left, const CComplexVector& right);
 
 	virtual int output(const char* FileName = nullptr) = 0;
+	virtual void setFilename(const char* FileName) = 0;
+	virtual const char* getFilename() const = 0;
 
 protected:
 	CComplexNumber *data = nullptr;
+	char* FileName = nullptr;
 	int vecsize = 0;
 };
