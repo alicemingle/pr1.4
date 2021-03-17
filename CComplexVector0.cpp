@@ -1,6 +1,6 @@
 #include "CComplexVector0.h"
 
-CComplexVector0 operator+(const CComplexVector0& left, const CComplexVector& right)  {
+CComplexVector0 operator+(const CComplexVector0& left, const CComplexVector& right) {
 	CComplexVector0 a(std::max(left.vecsize, CComplexVector0(right).vecsize));
 	std::copy(left.data, left.data + left.vecsize, a.data);
 	a += right;
@@ -12,6 +12,16 @@ CComplexVector0 operator-(const CComplexVector0& left, const CComplexVector& rig
 	std::copy(left.data, left.data + left.vecsize, a.data);
 	a -= right;
 	return a;
+}
+
+void CComplexVector0::setFilename(const char* FileName) {
+	this->FileName = new char[strlen(FileName) + 1];
+	memcpy(this->FileName, FileName, strlen(FileName));
+	this->FileName[strlen(FileName)] = '\0';
+}
+
+const char* CComplexVector0::getFilename() const {
+	return this->FileName;
 }
 
 int CComplexVector0::output(const char* FileName) {
