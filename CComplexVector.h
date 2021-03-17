@@ -33,8 +33,6 @@ public:
 	const CComplexNumber &operator[](int i) const;
 	CComplexVector &operator+=(const CComplexVector &right);
 	CComplexVector &operator-=(const CComplexVector &right);
-	//friend CComplexVector operator+(const CComplexVector &left, const CComplexVector &right);
-	//friend CComplexVector operator-(const CComplexVector &left, const CComplexVector &right);
 	friend CComplexNumber operator*(const CComplexVector& left, const CComplexVector& right);
 
 	virtual int output(const char* FileName = nullptr) = 0;
